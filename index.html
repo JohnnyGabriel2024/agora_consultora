@@ -436,6 +436,18 @@
         });
     });
 
+    // Cerrar el menú móvil automáticamente después de hacer clic en un enlace
+    const navCollapse = document.querySelector('.navbar-collapse');
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navCollapse.classList.contains('show')) {
+                new bootstrap.Collapse(navCollapse).hide();
+            }
+        });
+    });
+
     // Web3Forms: envío asíncrono con feedback y redirección a gracias.html
     const form = document.getElementById('contactForm');
     const statusDiv = document.getElementById('formStatus');
